@@ -63,5 +63,20 @@ rocksWarning("Franklin and Cedarlawn");
 
 const turtle = [ [0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2] ];
 
-const turtleMoves = turtle.filter( item => { return item[0] + item[1] } );
-console.log(turtleMoves);
+const turtleMoves = turtle.filter( item => { return item[0] >= 0 && item[1] >= 0 } )
+                          .map( arr => { return arr[0] + arr[1] })
+                          .forEach( (move, i) => move === 1 ? console.log(`Movement #${i+1}: ${move} step`) : console.log(`Movement #${i+1}: ${move} steps`));
+
+
+
+const random = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+
+const newArr = random.split(" ").reduce((acc, currentVal) => {
+  if(currentVal.length === 3) {
+    return acc += ' ';
+  } else {
+    return acc += currentVal[currentVal.length - 1].toUpperCase();
+  }
+}, '');
+
+console.log(newArr);
